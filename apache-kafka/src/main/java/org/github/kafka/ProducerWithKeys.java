@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Properties;
 
-public class ProducerWithCallback {
+public class ProducerWithKeys {
 
     static Logger logger = LoggerFactory.getLogger(ProducerWithCallback.class);
 
@@ -20,7 +20,8 @@ public class ProducerWithCallback {
 
         for (int i = 0; i < 10; i++) {
             // create producer record
-            ProducerRecord<String, String> record = new ProducerRecord<>("first_topic", "kafka" + i);
+            String key = "id_" + i;
+            ProducerRecord<String, String> record = new ProducerRecord<>("first_topic",key, "some" + i);
             // create producer
             KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
             //send data

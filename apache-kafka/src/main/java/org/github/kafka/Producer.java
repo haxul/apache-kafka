@@ -16,7 +16,7 @@ public class Producer {
         properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName() );
 
         // create producer record
-        ProducerRecord<String, String> record = new ProducerRecord<>("first_topic","hi");
+        ProducerRecord<String, String> record = new ProducerRecord<>("first_topic","what is up?");
         // create producer
         KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
         //send data
